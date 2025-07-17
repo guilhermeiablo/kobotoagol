@@ -1,0 +1,13 @@
+name: arcgis_env
+channels:
+  - esri
+  - conda-forge
+  - defaults
+
+dependencies:
+  - arcgis=2.4.*
+  - geopandas
+  - pandas
+  - requests
+  - numpy
+  - openpyxl
