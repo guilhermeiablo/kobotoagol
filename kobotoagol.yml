@@ -1,0 +1,41 @@
+name: Run Daily Task
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Runs every day at 6am UTC (adjust for your timezone)
+  workflow_dispatch:      # Allows manual runs
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          python-version: 3.10.*
+          activate-environment: arcgis_env
+          environment-file: environment.yml
+          auto-activate-base: false
+          miniforge-variant: Mambaforge
+          miniforge-version: 23.11.0-0  # This version exists and works
+          use-mamba: true
+          channels: esri,conda-forge,defaults
+
+
+      - name: Run daily script
+        env:
+          KOBO_USER: ${{ secrets.KOBO_USER }}
+          KOBO_PASSWORD: ${{ secrets.KOBO_PASSWORD }}
+          KOBO_TOKEN: ${{ secrets.KOBO_TOKEN }}
+          ARCGIS_USER: ${{ secrets.ARCGIS_USER }}
+          ARCGIS_PASSWORD: ${{ secrets.ARCGIS_PASSWORD }}
+          ARCGIS_PORTAL: ${{ secrets.ARCGIS_PORTAL }}
+
+        run: |
+          conda activate arcgis_env
+          python kobotoarcgis.py
+        shell: bash -l {0}
