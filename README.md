@@ -103,5 +103,5 @@ on:
 
 ## ✅ License
 
-MIT License or your preferred license.Creative Commons Share-alike Non-commercial 4.0 (CC-BY-NC-SA-4.0)
+Creative Commons Share-alike Non-commercial 4.0 (CC-BY-NC-SA-4.0)
 
