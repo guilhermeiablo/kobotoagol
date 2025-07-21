@@ -1,4 +1,4 @@
-# 📊🐍🌐 KoboToolbox to ArcGIS
+# 📊🐍🌐 KoboToolbox to ArcGIS Online
 A template repo with a script to migrate kobo forms entries into an ArcGIS Portal instance
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
